@@ -51,8 +51,8 @@ class Grille{
      * @return void
      */
     public function getGrille(){
-        $this->setGrille("Hard");
-        // $this->setGrille("Medium");
+        // $this->setGrille("Hard");
+        $this->setGrille("Medium");
         // $this->setGrille("Medium");
 
         echo "<p class='diff'>Difficulté :". $this->difficulty . "</p>";

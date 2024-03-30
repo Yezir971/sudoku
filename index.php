@@ -16,9 +16,14 @@ $objet = new Grille;
 // $result = json_decode($data, true);
 // var_dump( $result['newboard']['grids'][0]['value']);
 
-if(isset($_POST) && isset($_POST['grille'])){
-    var_dump( $_POST['grille']);
-}
+// $data = json_decode(file_get_contents('php://input'), true);
+
+// // Accéder aux données envoyées
+// $tableauDeTableaux = $data['data'];
+
+// // Affichage des données reçues
+// var_dump($tableauDeTableaux);
+
 
 
 
