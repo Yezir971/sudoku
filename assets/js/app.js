@@ -13,9 +13,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let contentEmptyText = document.querySelectorAll('.contentEmptyText');
     let containerGrilleSudoku = document.querySelectorAll('.case');
     let save = document.getElementById('save');
-    let inputGrille = document.getElementById('grille');
     let tableau = document.getElementsByTagName('table');
-    let tr = document.getElementsByTagName('tr');
     let interval;
 
 
@@ -302,7 +300,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
             
 
-            if(secondes == 59){
+            if(secondes == 60){
                 secondes = 0;
                 minute ++;
                 minute = String(minute).padStart(2,"0")
