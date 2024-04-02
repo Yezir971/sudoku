@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let save = document.getElementById('save');
     let tableau = document.getElementsByTagName('table');
     let interval;
+    let brouillion = document.querySelectorAll('.brouillion');
 
 
 
@@ -60,11 +61,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         caseEmpty[j].style.background = "none";
                     }
 
+
+
                 }
                 caseEmpty[i].style.background = "rgba(255, 166, 0, 0.3)";
                 selected = i; 
             });
+
         }
+        // gestion du button effacer 
+        brouillion[0].addEventListener('click', ()=>{
+            contentEmptyText[selected].innerHTML = "";
+            caseEmpty[selected].style.background = "none";
+        })
         for(let k=0 ; k<9 ; k++){
             let value = "";
             tableau[k].addEventListener('click', ()=>{
@@ -84,14 +93,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 }
             }
 
+
             number[k].addEventListener('click', ()=>{
+                let table = reconstitutionGrille();
                 if(selected!= null){
-                    let table = reconstitutionGrille();
                     value = number[k].innerText
                     contentEmptyText[selected].innerText = value;
                     checkPossible(table, number[k], selected,selectedTable, rowSelect, colSelect );
+
                     // console.log(reconstitutionGrille());
                 }
+                
             });
         }
     }
@@ -257,9 +269,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 caseEmpty[position].style.background = "red";
             }
         }
+        convertJson();
+
 
 
     }
+
 
 
 
@@ -323,6 +338,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
     startChrono();
     play.addEventListener("click", startChrono);
     pause.addEventListener("click", stopChrono);
+
+    // fonction qui va convertir en objet json le sudoku 
+    /**
+     * fonction qui prend en paramètre un tableau et le converti en json 
+     * @param {*} array 
+     */
+    function convertJson(){
+        let table = reconstitutionGrille();
+
+        const MyObject = {
+            grille: table,
+            temps: 22
+          };
+          const Json = JSON.stringify(MyObject);
+          
+          console.log(Json)
+
+    }
 
     
 })
